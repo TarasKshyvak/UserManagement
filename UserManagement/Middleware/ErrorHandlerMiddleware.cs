@@ -1,4 +1,4 @@
-﻿using UserManagement.Exceptions;
+﻿using UM.BLL.Exceptions;
 using System.Net;
 using System.Text.Json;
 

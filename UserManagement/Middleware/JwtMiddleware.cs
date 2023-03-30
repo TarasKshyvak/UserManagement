@@ -1,6 +1,6 @@
-﻿using UserManagement.Authorization;
-using UserManagement.Helpers;
-using UserManagement.Interfaces;
+﻿using UM.BLL.Authorization;
+using UM.BLL.Helpers;
+using UM.BLL.Interfaces;
 using Microsoft.Extensions.Options;
 
 namespace UserManagement.Middleware

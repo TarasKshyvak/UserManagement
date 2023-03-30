@@ -1,7 +1,7 @@
-﻿using UserManagement.Interfaces;
-using UserManagement.Models;
+﻿using UM.BLL.Interfaces;
+using UM.BLL.Models;
 using Microsoft.AspNetCore.Mvc;
-using UserManagement.Authorization;
+using UM.BLL.Authorization;
 
 namespace UserManagement.Controllers
 {
@@ -52,13 +52,11 @@ namespace UserManagement.Controllers
         }
 
         [HttpPost("revoke-token")]
-        public IActionResult RevokeToken(RevokeTokenRequest? model)
+        public IActionResult RevokeToken(RevokeTokenRequest model)
         {
             // accept refresh token in request body or cookie
-            var token = model!.Token;
-            if (string.IsNullOrEmpty(model.Token))
-                token = Request.Cookies["refreshToken"];
-            
+            var token = model.Token ?? Request.Cookies["refreshToken"];
+
             if (string.IsNullOrEmpty(token))
                 return BadRequest(new { message = "Token is required" });
 
@@ -71,6 +69,7 @@ namespace UserManagement.Controllers
         {
             return Ok(await _userService.GetAllAsync());
         }
+
 
         [HttpGet("{id}/refresh-tokens")]
         public async Task<IActionResult> GetRefreshTokens(Guid id)

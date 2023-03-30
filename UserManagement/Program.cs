@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Text.Json.Serialization;
-using UserManagement;
-using UserManagement.Authorization;
-using UserManagement.Helpers;
-using UserManagement.Interfaces;
-using UserManagement.Services;
+using UM.BLL;
+using UM.BLL.Authorization;
+using UM.BLL.Helpers;
+using UM.BLL.Interfaces;
+using UM.BLL.Services;
+using UM.DAL;
 using UserManagement.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
